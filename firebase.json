@@ -1,0 +1,14 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  },
+  "apphosting": {
+    "backendId": "autek-ingenieria-web",
+    "rootDir": "./"
+  }
+}
