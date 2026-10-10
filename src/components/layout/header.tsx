@@ -22,32 +22,27 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: 'Inicio', href: '/' },
-  {
-    label: 'Equipos Industriales',
-    href: '/equipos-industriales',
-    items: [
-      { label: 'Hiladora de Queso', href: '/equipos-industriales/hiladora-de-queso' },
-      { label: 'Tanques de Leche', href: '/equipos-industriales/tanques-de-leche' },
-      { label: 'Mezclador de Carne', href: '/equipos-industriales/mezclador-de-carne' },
-      { label: 'Bandas Transportadoras', href: '/equipos-industriales/bandas-transportadoras' },
-      { label: 'Elevadores de Carne', href: '/equipos-industriales/elevador-de-carne' },
-      { label: 'Calderas Industriales', href: '/equipos-industriales/calderas' },
-    ]
-  },
-  { label: 'Proyectos', href: '/#portafolio' },
-  { label: 'Nosotros', href: '/#nosotros' },
+  { label: 'Servicios & Consultoría', href: '/#servicios' },
+  { label: 'Proyectos Ejecutados', href: '/#proyectos' },
+  { label: 'Sobre Mí', href: '/#sobre-mi' },
   { label: 'Contacto', href: '/#contacto' },
 ];
 
 const AutekLogo = () => (
-  <Image
-    src="/images/logo.png"
-    alt="Autek Ingenieria Logo"
-    width={120}
-    height={32}
-    style={{ height: 'auto' }}
-    priority
-  />
+  <div className="flex items-center gap-2.5">
+    <Image
+      src="/images/logo.png"
+      alt="Autek Ingenieria Logo"
+      width={90}
+      height={26}
+      style={{ height: 'auto' }}
+      priority
+    />
+    <div className="flex flex-col border-l border-border pl-2.5">
+      <span className="text-sm font-semibold leading-tight text-foreground tracking-tight">Gilbert Alvarado</span>
+      <span className="text-[11px] font-medium text-muted-foreground leading-tight">Ingeniero Mecatrónico • Autek</span>
+    </div>
+  </div>
 );
 
 export function Header() {
@@ -76,7 +71,9 @@ export function Header() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        isScrolled ? 'bg-background/95 shadow-md backdrop-blur-sm border-b border-border' : 'bg-transparent'
+        isScrolled
+          ? 'bg-background/95 shadow-md backdrop-blur-md border-b border-border'
+          : 'bg-background/90 shadow-xs backdrop-blur-md border-b border-border/60'
       )}
     >
       <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">

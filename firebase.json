@@ -8,7 +8,7 @@
     ]
   },
   "apphosting": {
-    "backendId": "autek-ingenieria-web",
+    "backendId": "studio",
     "rootDir": "./"
   }
 }

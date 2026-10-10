@@ -20,22 +20,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Servicios Eléctricos en Bucaramanga | Variadores, PLC y Tableros',
-  description: 'Instalación de variadores de frecuencia, mantenimiento de tableros eléctricos y programación de PLC en Bucaramanga y Santander. Atención inmediata con técnicos especializados.',
-  keywords: 'servicios eléctricos Bucaramanga, variadores de frecuencia Santander, mantenimiento tableros eléctricos, programación PLC Bucaramanga, arrancadores suaves Bucaramanga, fallas eléctricas Santander',
-  authors: [{ name: 'Autek Ingeniería' }],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://autekcolombia.com'),
+  title: 'Gilbert Alvarado | Automatización, PLC y Tableros Eléctricos',
+  description: 'Servicios de ingeniería por Gilbert Alvarado (Autek): tableros de control, programación de PLC, variadores y soluciones IoT en Bucaramanga y Colombia.',
+  keywords: 'Gilbert Alvarado, Autek, ingenieria mecatronica bucaramanga, tableros de control, programacion de plc, variadores de frecuencia, soluciones iot colombia, diseño tableros electricos, retie',
+  authors: [{ name: 'Gilbert Alvarado', url: 'https://autekcolombia.com' }],
+  creator: 'Gilbert Alvarado',
   robots: 'index, follow',
   openGraph: {
-    title: 'Servicios Eléctricos en Bucaramanga | Variadores, PLC y Tableros',
-    description: 'Instalación de variadores de frecuencia, mantenimiento de tableros eléctricos y programación de PLC en Bucaramanga y Santander. Atención inmediata con técnicos especializados.',
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.autekcolombia.com',
-    siteName: 'Autek Ingeniería',
+    title: 'Gilbert Alvarado | Automatización, PLC y Tableros Eléctricos',
+    description: 'Servicios de ingeniería por Gilbert Alvarado (Autek): tableros de control, programación de PLC, variadores y soluciones IoT en Bucaramanga y Colombia.',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://autekcolombia.com',
+    siteName: 'Gilbert Alvarado - Autek Ingeniería',
     images: [
       {
-        url: '/images/inicio_1.png', // Imagen destacada para redes sociales
+        url: '/images/foto_personal.jpg',
         width: 1200,
         height: 630,
-        alt: 'Servicios eléctricos industriales y automatización',
+        alt: 'Gilbert Alvarado | Automatización, PLC y Tableros Eléctricos',
       },
     ],
     locale: 'es_CO',
@@ -43,16 +45,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Servicios Eléctricos en Bucaramanga | Variadores, PLC y Tableros',
-    description: 'Instalación de variadores de frecuencia, mantenimiento de tableros eléctricos y programación de PLC en Bucaramanga y Santander. Atención inmediata con técnicos especializados.',
-    images: ['/images/inicio_1.png'], // Imagen para Twitter Cards
+    title: 'Gilbert Alvarado | Automatización, PLC y Tableros Eléctricos',
+    description: 'Servicios de ingeniería por Gilbert Alvarado (Autek): tableros de control, programación de PLC, variadores y soluciones IoT en Bucaramanga y Colombia.',
+    images: ['/images/foto_personal.jpg'],
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://www.autekcolombia.com',
+    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://autekcolombia.com',
   },
   icons: {
     icon: '/images/logo.png',
   },
+};
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Gilbert Alvarado | Autek Ingeniería',
+  url: 'https://autekcolombia.com',
+  founder: {
+    '@type': 'Person',
+    name: 'Gilbert Alvarado',
+  },
+  description: 'Diseño y ensamble de tableros eléctricos, programación de PLC, variadores de frecuencia y soluciones IoT en Bucaramanga y Colombia.',
+  telephone: '+57-316-7835605',
+  email: 'autekingenieria@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bucaramanga',
+    addressRegion: 'Santander',
+    addressCountry: 'CO',
+  },
+  areaServed: [
+    {
+      '@type': 'AdministrativeArea',
+      name: 'Santander',
+    },
+    {
+      '@type': 'Country',
+      name: 'Colombia',
+    },
+  ],
 };
 
 export default function RootLayout({
@@ -62,6 +94,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={cn(
           'min-h-screen bg-background font-sans antialiased',
