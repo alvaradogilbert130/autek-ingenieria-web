@@ -1,5 +1,5 @@
 // src/app/sitemap.xml/route.ts
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.autekcolombia.com';
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://autekcolombia.com';
 
 interface SitemapPage {
   loc: string;
